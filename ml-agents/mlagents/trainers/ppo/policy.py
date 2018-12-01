@@ -33,6 +33,7 @@ class PPOPolicy(Policy):
                               use_curiosity=bool(trainer_params['use_curiosity']),
                               curiosity_strength=float(trainer_params['curiosity_strength']),
                               curiosity_enc_size=float(trainer_params['curiosity_enc_size']),
+                              only_vec=bool(trainer_params['only_vec']),
                               scope=self.variable_scope, seed=seed)
 
         self.inference_dict = {'action': self.model.output, 'log_probs': self.model.all_log_probs,

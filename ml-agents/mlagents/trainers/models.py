@@ -8,7 +8,7 @@ logger = logging.getLogger("mlagents.envs")
 
 
 class LearningModel(object):
-    def __init__(self, m_size, normalize, use_recurrent, brain, seed):
+    def __init__(self, m_size, normalize, use_recurrent, brain, only_vec, seed):
         tf.set_random_seed(seed)
         self.brain = brain
         self.vector_in = None
@@ -25,6 +25,9 @@ class LearningModel(object):
         self.vec_obs_size = brain.vector_observation_space_size * \
                             brain.num_stacked_vector_observations
         self.vis_obs_size = brain.number_visual_observations
+        self.only_vec = only_vec
+        if self.only_vec:
+            self.vis_obs_size = 0
 
     @staticmethod
     def create_global_steps():

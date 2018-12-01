@@ -33,8 +33,9 @@ class PPOTrainer(Trainer):
                            'learning_rate', 'max_steps', 'normalize', 'num_epoch', 'num_layers',
                            'time_horizon', 'sequence_length', 'summary_freq', 'use_recurrent',
                            'graph_scope', 'summary_path', 'memory_size', 'use_curiosity', 'curiosity_strength',
-                           'curiosity_enc_size']
-
+                           'curiosity_enc_size', 'only_vec']
+        #print(self.param_keys)
+        #print(trainer_parameters)
         for k in self.param_keys:
             if k not in trainer_parameters:
                 raise UnityTrainerException("The hyperparameter {0} could not be found for the PPO trainer of "
