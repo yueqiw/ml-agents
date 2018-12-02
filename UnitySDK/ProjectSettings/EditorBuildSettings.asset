@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/ML-Agents/Examples/Pyramids/Scenes/PyramidsCamera.unity
     guid: 99402cd30b0844713b83f06a32812418
-  - enabled: 0
+  - enabled: 1
     path: Assets/ML-Agents/Examples/Hallway/Scenes/HallwayCamera.unity
     guid: 6ac7472e31bee494bae02dd07e95e87b
   - enabled: 0
