@@ -74,7 +74,7 @@ namespace MLAgents
         /// Name of the action mask node
         private string ActionMaskPlaceholderName = "action_masks";
 
-        public bool OnlyVector = true; 
+        public bool OnlyVector = false; 
         
 #if ENABLE_TENSORFLOW
         TFGraph graph;
@@ -498,6 +498,8 @@ namespace MLAgents
             EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
             broadcast = EditorGUILayout.Toggle(new GUIContent("Broadcast",
                 "If checked, the brain will broadcast states and actions to Python."), broadcast);
+            OnlyVector = EditorGUILayout.Toggle(new GUIContent("Ignore Visual Observation",
+                "If checked, ignore visual observation."), OnlyVector);
 
             var serializedBrain = new SerializedObject(this);
             GUILayout.Label("Edit the Tensorflow graph parameters here");
