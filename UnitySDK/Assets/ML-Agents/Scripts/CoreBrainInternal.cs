@@ -73,6 +73,8 @@ namespace MLAgents
 
         /// Name of the action mask node
         private string ActionMaskPlaceholderName = "action_masks";
+
+        public bool OnlyVector = true; 
         
 #if ENABLE_TENSORFLOW
         TFGraph graph;
@@ -361,14 +363,18 @@ namespace MLAgents
             }
             
             // Create the observation tensors
-            for (int obsNumber =
+            if (!OnlyVector) 
+            {
+                for (int obsNumber =
                     0;
                 obsNumber < brain.brainParameters.cameraResolutions.Length;
                 obsNumber++)
-            {
-                runner.AddInput(graph[graphScope + VisualObservationPlaceholderName[obsNumber]][0],
-                    observationMatrixList[obsNumber]);
+                {
+                    runner.AddInput(graph[graphScope + VisualObservationPlaceholderName[obsNumber]][0],
+                        observationMatrixList[obsNumber]);
+                }
             }
+
 
             if (hasRecurrent)
             {
@@ -550,7 +556,7 @@ namespace MLAgents
                                                                                        "the output placeholder here."),
                     RecurrentOutPlaceholderName);
 
-            if (brain.brainParameters.cameraResolutions != null)
+            if (brain.brainParameters.cameraResolutions != null && !OnlyVector)
             {
                 if (brain.brainParameters.cameraResolutions.Count() > 0)
                 {

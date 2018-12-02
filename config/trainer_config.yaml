@@ -20,6 +20,7 @@ default:
     use_curiosity: false
     curiosity_strength: 0.01
     curiosity_enc_size: 128
+    only_vec: false
 
 BananaBrain:
     normalize: false
@@ -43,6 +44,17 @@ PushBlockBrain:
     summary_freq: 2000
     time_horizon: 64
     num_layers: 2
+
+PushBlockCameraBrain:
+    max_steps: 5.0e4
+    batch_size: 128
+    buffer_size: 2048
+    beta: 1.0e-2
+    hidden_units: 256
+    summary_freq: 2000
+    time_horizon: 64
+    num_layers: 2
+    only_vec: true
 
 SmallWallBrain: 
     max_steps: 1.0e6
@@ -189,6 +201,22 @@ HallwayBrain:
     max_steps: 5.0e5
     summary_freq: 1000
     time_horizon: 64
+
+HallwayCameraBrain:
+    use_recurrent: true
+    sequence_length: 64
+    num_layers: 2
+    hidden_units: 128
+    memory_size: 256
+    beta: 1.0e-2
+    gamma: 0.99
+    num_epoch: 3
+    buffer_size: 1024
+    batch_size: 128
+    max_steps: 5.0e5
+    summary_freq: 1000
+    time_horizon: 64
+    only_vec: true
 
 VisualHallwayBrain:
     use_recurrent: true

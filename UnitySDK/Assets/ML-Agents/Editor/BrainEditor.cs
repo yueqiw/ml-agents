@@ -66,6 +66,12 @@ namespace MLAgents
                     "Describes height, " +
                     "width, and whether to greyscale visual observations for the Brain."), true);
 
+                //EditorGUI.indentLevel--;
+                //SerializedProperty bpOnlyVector =
+                //    serializedBrain.FindProperty("brainParameters.onlyVector");
+                //EditorGUILayout.PropertyField(bpOnlyVector, new GUIContent("Only Use Vector Obs",
+                    //"Ignore Visual Observation"), true);
+
                 EditorGUILayout.LabelField("Vector Action");
                 EditorGUI.indentLevel++;
 

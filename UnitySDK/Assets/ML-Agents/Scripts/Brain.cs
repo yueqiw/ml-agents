@@ -72,6 +72,7 @@ namespace MLAgents
 
         public SpaceType vectorActionSpaceType = SpaceType.discrete;
         /**< \brief Defines if the action is discrete or continuous */
+
     }
 
     [HelpURL("https://github.com/Unity-Technologies/ml-agents/blob/master/" +
